@@ -1,0 +1,6 @@
+{"websiteName": "My Website",
+    "websitePushID": "web.com.localhost.pushDemo",
+    "allowedDomains": ["http://localhost", "http://localhost:8080", "http://127.0.0.1:8080", "https://localhost:8080","https://169.254.130.65:8080","https://172.20.10.4:8080", "http://127.0.0.1", "https://localhost"],
+    "urlFormatString": "https://%@",
+    "authenticationToken": "19f8d7a6e9fb8a7f6d9330dabe123",
+    "webServiceURL": "https://walnut-enthusiastic-guarantee.glitch.me/"}
