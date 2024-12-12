@@ -1,185 +1,210 @@
 <!DOCTYPE html>
 <html>
   <head>
-  	<!-- Google Tag Manager -->
-
-<!-- <script>
-// Check browser support
-if (typeof(Storage) !== "undefined") {
-  // Store
-  let message = [{
-    tab : "all",
-    title : "Welcome To hackathon",
-    body : "This is an intiative by DK",
-    imageurl : "https://s3.envato.com/files/216024394/01_Preview%203.jpg"
-  }];
-  localStorage.setItem("message", JSON.stringify(message));
-  // console.log(localStorage.getItem("message"));
-  var messages = JSON.parse(localStorage.getItem("message"));
-  messages.push({
-    tab : "promotions",
-    title : "Welcome To",
-    body : "This is an by DK",
-    imageurl : "https://s3.envato.com/files/216024394/01_Preview%203.jpg"
-  });
-  localStorage.setItem("message", JSON.stringify(messages));
-
-  // Retrieve
-  // document.getElementById("result").innerHTML = localStorage.getItem("lastname");
-  console.log(localStorage.getItem("message"))
-} else {
-  // document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
-}
-</script> -->
-
-
-
-
-
-
-
-<!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-M2PK5TM');</script> -->
-<!-- End Google Tag Manager -->
-<link rel="manifest" href="/manifest.json">
+    <!-- End Google Tag Manager -->
+    <link rel="manifest" href="/manifest.json" />
     <title>My webpage!</title>
     <link rel="stylesheet" href="styles/styles.css" />
     <script async src="./javascript/index.js"></script>
 
+    <meta name="apple-mobile-web-app-title" content="Your Apple App Title">
 
 
-<!-- <script>
-  !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var t=analytics.methods[e];analytics[t]=analytics.factory(t)}analytics.load=function(e,t){var n=document.createElement("script");n.type="text/javascript";n.async=!0;n.src="https://cdn.segment.com/analytics.js/v1/"+e+"/analytics.min.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(n,a);analytics._loadOptions=t};analytics.SNIPPET_VERSION="4.1.0";
-  analytics.load("zRcXZR4HdoWP35650T6VmOXOpTIcT781");
-  analytics.track("From Segement Track");
-  analytics.identify('996633',{name : 'Segment Test',email : 'segment@web.com',Custom_key : 'custome_value',phone:'+919022965224'});
-//   analytics.page("From Segment Page");
-//   analytics.page('Pricing', {
-//   title: 'Segment Pricing',
-//   url: 'https://segment.com/pricing',
-//   path: '/pricing',
-//   referrer: 'https://segment.com/warehouses'
-// });
-  }}();
-</script>  -->
+    <link rel="icon" type="image/png" href="/assets/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <link rel="shortcut icon" href="/assets/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+    <link rel="manifest" href="/assets/site.webmanifest" />
 
+    <script type="text/javascript">
+      var clevertap = {
+        event: [],
+        profile: [],
+        account: [],
+        onUserLogin: [],
+        notifications: [],
+        privacy: [],
+      };
+      // replace with the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard -> Settings page
 
+      // Jay demo account
+      clevertap.account.push({ id: "W6Z-6Z5-975Z" });
 
-<script type="text/javascript">
+      // Staging 4 account
+      // clevertap.account.push({ id: "884-5ZW-8Z7Z" }, "sk1-staging-4");
 
-     var clevertap = {event:[], profile:[], account:[], onUserLogin:[], notifications:[], privacy:[]};
- // replace with the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard -> Settings page
-clevertap.account.push({"id": "W6Z-6Z5-975Z"});
-clevertap.privacy.push({optOut: false}); //set the flag to true, if the user of the device opts out of sharing their data
-clevertap.privacy.push({useIP: false}); 
-clevertap.event.push("Web Push View",{"Product Name":"Product1","category":"cat1","date_time":new Date("July 03, 2020 09:30:00"),"cartValue":10,"epoch_value":"$D_1594717641"});
-clevertap.event.push("custom html event");
-clevertap.onUserLogin.push({"Site":{"Name":"Web User","Email":"abc123890456@example.com","Identity":"78901234ABC","Custom_Tag":"Champion"}});
-// clevertap.profile.push({"Site":{"Identity":"123qwerty","Email":"abc@example.com","cart_value":50,"Phone":"+919090909090"}});
-//set the flag to true, if the user agrees to share their IP data
- (function () {
-     var wzrk = document.createElement('script');
-     wzrk.type = 'text/javascript';
-     wzrk.async = true;
-     wzrk.src = ('https:' == document.location.protocol ? 'https://d2r1yp2w7bby2u.cloudfront.net' : 'http://static.clevertap.com') + '/js/clevertap.min.js';
-     // wzrk.src = ('https:' == document.location.protocol ? 'https://d2r1yp2w7bby2u.cloudfront.net' : 'http://static.clevertap.com') + '/js/a.js';
-      // wzrk.src = 'https://cdn.jsdelivr.net/gh/CleverTap/clevertap-web-sdk@track_sdk_drop_offs/clevertap.min.js';
-     var s = document.getElementsByTagName('script')[0];
-     s.parentNode.insertBefore(wzrk, s);
-  })();
+      clevertap.privacy.push({ optOut: false }); //set the flag to true, if the user of the device opts out of sharing their data
+      clevertap.privacy.push({ useIP: false });
+      clevertap.event.push("Web Push View", {
+        "Product Name": "Product1",
+        category: "cat1",
+        date_time: new Date("July 03, 2020 09:30:00"),
+        cartValue: 10,
+        epoch_value: "$D_1594717641",
+      });
+      clevertap.event.push("custom html event");
+      // clevertap.onUserLogin.push({
+      //   Site: {
+      //     Name: "Web User",
+      //     Email: "newuser@example.com",
+      //     Identity: "ddsad787dsa34",
+      //     Custom_Tag: "Champion",
+      //   },
+      // });
+      // clevertap.profile.push({"Site":{"Identity":"123qwerty","Email":"abc@example.com","cart_value":50,"Phone":"+919090909090"}});
+      //set the flag to true, if the user agrees to share their IP data
 
-// var clevertap = {event:[], profile:[], account:[], onUserLogin:[], notifications:[], privacy:[]};
-//  // replace with the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard -> Settings page
-// clevertap.account.push({"id": "W6Z-6Z5-975Z"});
-     
+      (function () {
+        var wzrk = document.createElement("script");
+        wzrk.type = "text/javascript";
+        wzrk.async = true;
+        // wzrk.src =
+        //   ("https:" == document.location.protocol
+        //     ? "https://d2r1yp2w7bby2u.cloudfront.net"
+        //     : "http://static.clevertap.com") + "/js/clevertap.min.js";
+        // // wzrk.src = ('https:' == document.location.protocol ? 'https://d2r1yp2w7bby2u.cloudfront.net' : 'http://static.clevertap.com') + '/js/a.js';
+        wzrk.src =
+          "https://cdn.jsdelivr.net/gh/CleverTap/clevertap-web-sdk@3995664a2e693a1ab8ba8fbce92d663ef0fe5db7/clevertap.js";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(wzrk, s);
+      })();
 
-// clevertap.privacy.push({optOut: false}); //set the flag to true, if the user of the device opts out of sharing their data
-// clevertap.onUserLogin.push({"Site":{"Name":"Web User","Email":"abc@example.com","Identity":"xyz123","Custom_Tag":"Champion"}});//9889
-// // clevertap.onUserLogin.push({"Site":{"Name":"Web User","Identity":"123qwerty","Custom_Tag":"Champion"}});
-// // clevertap.event.push("Test ID Event",{"Identity":"43198"});
-// clevertap.onUserLogin.push({"Site":{"Name":"Jay Mehta","Custom_Tag":"Champion","Identity":"6425","DOB":new Date(1575103663000),"Anniversary":new Date(1575103663000),"Language_Multi":['Tamil','Telgu']}});
-// clevertap.profile.push({"Site":{"Identity":"6425","My_Key":"My_Value","MSG-push":true}});
-// // clevertap.event.push("login",{"name":"ct"});
-// // clevertap.event.push("signup",{"name":"ct"});
+      // var clevertap = {event:[], profile:[], account:[], onUserLogin:[], notifications:[], privacy:[]};
+      //  // replace with the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard -> Settings page
+      // clevertap.account.push({"id": "W6Z-6Z5-975Z"});
 
-// timeFunction();
-// // clevertap.profile.push({"Site":{"Identity":"123qwerty","Email":"abc@example.com","cart_value":50}});
-// clevertap.event.push("Web Push View",{"Product Name":"Product1","category":"cat1","date_time":new Date("July 03, 2020 09:30:00"),"cartValue":10,"epoch_value":"$D_1594717641"});
-// clevertap.privacy.push({useIP: false}); //set the flag to true, if the user agrees to share their IP data
-// function timeFunction() {
-//             setTimeout(function(){ clevertap.event.push("Web Event"); }, 5000);
-//             clevertap.event.push("Web Event Test");
-//             // clevertap.profile.push({"Site":{"Custom_Tag":"Champ"}});
-//         }
-//  (function () {
-// 		 var wzrk = document.createElement('script');
-// 		 wzrk.type = 'text/javascript';
-// 		 wzrk.async = true;
-// 		 wzrk.src = ('https:' == document.location.protocol ? 'https://d2r1yp2w7bby2u.cloudfront.net' : 'http://static.clevertap.com') + '/js/a.js';
-// 		 var s = document.getElementsByTagName('script')[0];
-// 		 s.parentNode.insertBefore(wzrk, s);
-//   })();
+      // clevertap.privacy.push({optOut: false}); //set the flag to true, if the user of the device opts out of sharing their data
+      // clevertap.onUserLogin.push({"Site":{"Name":"Web User","Email":"abc@example.com","Identity":"xyz123","Custom_Tag":"Champion"}});//9889
+      // // clevertap.onUserLogin.push({"Site":{"Name":"Web User","Identity":"123qwerty","Custom_Tag":"Champion"}});
+      // // clevertap.event.push("Test ID Event",{"Identity":"43198"});
+      // clevertap.onUserLogin.push({"Site":{"Name":"Jay Mehta","Custom_Tag":"Champion","Identity":"6425","DOB":new Date(1575103663000),"Anniversary":new Date(1575103663000),"Language_Multi":['Tamil','Telgu']}});
+      // clevertap.profile.push({"Site":{"Identity":"6425","My_Key":"My_Value","MSG-push":true}});
+      // // clevertap.event.push("login",{"name":"ct"});
+      // // clevertap.event.push("signup",{"name":"ct"});
 
+      // timeFunction();
+      // // clevertap.profile.push({"Site":{"Identity":"123qwerty","Email":"abc@example.com","cart_value":50}});
+      // clevertap.event.push("Web Push View",{"Product Name":"Product1","category":"cat1","date_time":new Date("July 03, 2020 09:30:00"),"cartValue":10,"epoch_value":"$D_1594717641"});
+      // clevertap.privacy.push({useIP: false}); //set the flag to true, if the user agrees to share their IP data
+      // function timeFunction() {
+      //             setTimeout(function(){ clevertap.event.push("Web Event"); }, 5000);
+      //             clevertap.event.push("Web Event Test");
+      //             // clevertap.profile.push({"Site":{"Custom_Tag":"Champ"}});
+      //         }
+      //  (function () {
+      // 		 var wzrk = document.createElement('script');
+      // 		 wzrk.type = 'text/javascript';
+      // 		 wzrk.async = true;
+      // 		 wzrk.src = ('https:' == document.location.protocol ? 'https://d2r1yp2w7bby2u.cloudfront.net' : 'http://static.clevertap.com') + '/js/a.js';
+      // 		 var s = document.getElementsByTagName('script')[0];
+      // 		 s.parentNode.insertBefore(wzrk, s);
+      //   })();
 
-function dismissPopup() {
-	// var wrapper = window.parent.document.getElementById('wizParDiv2');
-	// wrapper.remove();
-  // if ('safari' in window && 'pushNotification' in window.safari) {
-  //       var permissionData = window.safari.pushNotification.permission('web.com.localhost.pushDemo');
-  //       checkRemotePermission(permissionData);
-  //   }
-  
-  clevertap.notifications.push({
-    "apnsWebPushId":"web.com.localhost.pushDemo", //only for safari browser
-    "apnsWebPushServiceUrl":"https://us-central1-chetan-s-demo-app.cloudfunctions.net/api",//only for safari browser
-    "titleText":'Would you like to receive Push Notifications?',
-    "bodyText":'We promise to only send you relevant content and give you updates on your transactions',
-    "okButtonText":'Sign me up!',
-    "rejectButtonText":'No thanks',
-    "okButtonColor":'#f28046',
-    "hidePoweredByCT": true,
-    "serviceWorkerPath": "/clevertap_sw.js"});
+      function dismissPopup() {
+        // var wrapper = window.parent.document.getElementById('wizParDiv2');
+        // wrapper.remove();
+        // if ('safari' in window && 'pushNotification' in window.safari) {
+        //       var permissionData = window.safari.pushNotification.permission('web.com.localhost.pushDemo');
+        //       checkRemotePermission(permissionData);
+        //   }
 
-}
-//"serviceWorkerPath": "/clevertap_sw.js
-// var checkRemotePermission = function (permissionData) {
-//     if (permissionData.permission === 'default') {
-//         // This is a new web service URL and its validity is unknown.
-//         window.safari.pushNotification.requestPermission(
-//             'https://shore-zany-tangelo.glitch.me', // The web service URL.
-//             'web.com.localhost.pushDemo',     // The Website Push ID.
-//             {}, // Data that you choose to send to your server to help you identify the user.
-//             checkRemotePermission         // The callback function.
-//         );
-//     }
-//     else if (permissionData.permission === 'denied') {
-//       console.log("NO ",permissionData);
-//         // The user said no.
-//     }
-//     else if (permissionData.permission === 'granted') {
-//         // The web service URL is a valid push provider, and the user said yes.
-//         // permissionData.deviceToken is now available to use.
-//         console.log(permissionData.deviceToken);
-//     }
-// };
+        clevertap.notifications.push({
+          apnsWebPushId: "web.com.localhost.pushDemo", //only for safari browser
+          apnsWebPushServiceUrl:
+            "https://us-central1-chetan-s-demo-app.cloudfunctions.net/api", //only for safari browser
+          titleText: "Would you like to receive Push Notifications?",
+          bodyText:
+            "We promise to only send you relevant content and give you updates on your transactions",
+          okButtonText: "Sign me up!",
+          rejectButtonText: "No thanks",
+          okButtonColor: "#f28046",
+          hidePoweredByCT: true,
+          serviceWorkerPath: "/clevertap_sw.js",
+        });
+      }
+      
+      //"serviceWorkerPath": "/clevertap_sw.js
+      // var checkRemotePermission = function (permissionData) {
+      //     if (permissionData.permission === 'default') {
+      //         // This is a new web service URL and its validity is unknown.
+      //         window.safari.pushNotification.requestPermission(
+      //             'https://shore-zany-tangelo.glitch.me', // The web service URL.
+      //             'web.com.localhost.pushDemo',     // The Website Push ID.
+      //             {}, // Data that you choose to send to your server to help you identify the user.
+      //             checkRemotePermission         // The callback function.
+      //         );
+      //     }
+      //     else if (permissionData.permission === 'denied') {
+      //       console.log("NO ",permissionData);
+      //         // The user said no.
+      //     }
+      //     else if (permissionData.permission === 'granted') {
+      //         // The web service URL is a valid push provider, and the user said yes.
+      //         // permissionData.deviceToken is now available to use.
+      //         console.log(permissionData.deviceToken);
+      //     }
+      // };
+    </script>
 
+    <script>
+      function vapid() {
+        window.Notification.requestPermission().then((permission) => {
+          if (permission === "granted") {
+            const subscribeObj = {
+              applicationServerKey:
+                "BFygpPBmFuCSAXq1UDxA-LNBM2gzYHbp6Xld16N0xXp962u7oVu4BMG0qoafzHXFR43aAJi51JpmboG5v8idtbQ", // this.#fcmPublicKey,
+              userVisibleOnly: true,
+            };
+            console.log("Sub Obj" + JSON.stringify(subscribeObj));
+            registration.pushManager
+              .subscribe(subscribeObj)
+              .then((subscription) => {
+                console.log(
+                  "Service Worker registered. Endpoint: " +
+                    subscription.endpoint
+                );
+                console.log(
+                  "Service Data Sent: " +
+                    JSON.stringify({
+                      applicationServerKey:
+                        "BFygpPBmFuCSAXq1UDxA-LNBM2gzYHbp6Xld16N0xXp962u7oVu4BMG0qoafzHXFR43aAJi51JpmboG5v8idtbQ", // this.#fcmPublicKey,
+                      userVisibleOnly: true,
+                    })
+                );
+                console.log(
+                  "Subscription Data Received: " + JSON.stringify(subscription)
+                );
 
+                const subscriptionData = JSON.parse(
+                  JSON.stringify(subscription)
+                );
 
-
-</script>
+                subscriptionData.endpoint = subscriptionData.endpoint
+                  .split("/")
+                  .pop();
+              });
+          }
+        });
+      }
+    </script>
   </head>
   <body>
-  	<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2PK5TM"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-M2PK5TM"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <h1>Hello, World!</h1>
-    <h4 id='date'></h4>
 
+    <button onclick="vapid()">
+      <h3>VAPID</h3>
+    </button>
     <div class="image-section">
       <div class="section-style">
         <img src="https://picsum.photos/400/200" alt="" />
