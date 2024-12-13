@@ -28,10 +28,14 @@
       // replace with the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard -> Settings page
 
       // Jay demo account
-      clevertap.account.push({ id: "W6Z-6Z5-975Z" });
+      // clevertap.account.push({ id: "W6Z-6Z5-975Z" });
 
       // Staging 4 account
       // clevertap.account.push({ id: "884-5ZW-8Z7Z" }, "sk1-staging-4");
+      // clevertap.account.push({ id: "884-5ZW-8Z7Z" }, "sk1");
+
+      // Eu1 Account
+      clevertap.account.push({ id: "ZWW-WWW-WWRZ" }, "eu1");
 
       clevertap.privacy.push({ optOut: false }); //set the flag to true, if the user of the device opts out of sharing their data
       clevertap.privacy.push({ useIP: false });
@@ -58,13 +62,13 @@
         var wzrk = document.createElement("script");
         wzrk.type = "text/javascript";
         wzrk.async = true;
-        // wzrk.src =
-        //   ("https:" == document.location.protocol
-        //     ? "https://d2r1yp2w7bby2u.cloudfront.net"
-        //     : "http://static.clevertap.com") + "/js/clevertap.min.js";
-        // // wzrk.src = ('https:' == document.location.protocol ? 'https://d2r1yp2w7bby2u.cloudfront.net' : 'http://static.clevertap.com') + '/js/a.js';
         wzrk.src =
-          "https://cdn.jsdelivr.net/gh/CleverTap/clevertap-web-sdk@3995664a2e693a1ab8ba8fbce92d663ef0fe5db7/clevertap.js";
+          ("https:" == document.location.protocol
+            ? "https://d2r1yp2w7bby2u.cloudfront.net"
+            : "http://static.clevertap.com") + "/js/clevertap.min.js";
+        // wzrk.src = ('https:' == document.location.protocol ? 'https://d2r1yp2w7bby2u.cloudfront.net' : 'http://static.clevertap.com') + '/js/a.js';
+        // wzrk.src =
+          // "https://cdn.jsdelivr.net/gh/CleverTap/clevertap-web-sdk@60df04398d6be274daf433ae23b52239e9b9e960/clevertap.js";
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(wzrk, s);
       })();
@@ -121,6 +125,13 @@
           hidePoweredByCT: true,
           serviceWorkerPath: "/clevertap_sw.js",
         });
+
+
+        // Notification called with params 
+        // on apns 
+        // vapid creds added in dashboard 
+        // customer opens website 
+
       }
       
       //"serviceWorkerPath": "/clevertap_sw.js
