@@ -17,6 +17,15 @@
     <link rel="manifest" href="/assets/site.webmanifest" />
 
     <script type="text/javascript">
+      // Get Account id and region from query string
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const accountId = urlParams.get("accountId");
+      const region = urlParams.get("region");
+      const token = urlParams.get("token");
+
+
+
       var clevertap = {
         event: [],
         profile: [],
@@ -25,6 +34,9 @@
         notifications: [],
         privacy: [],
       };
+
+      clevertap.account.push({ id: accountId }, region, "", token);
+
       // replace with the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard -> Settings page
 
       // Jay demo account
