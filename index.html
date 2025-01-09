@@ -191,6 +191,12 @@
           "Site data cleared: localStorage, sessionStorage, and cookies."
         );
       }
+
+      function showClevertapData() {
+        const ctID = clevertap.getCleverTapID();
+        const ctAccount = clevertap.getAccountID();
+        document.getElementById("clevertap-data").innerHTML = `Clevertap ID: ${ctID}\nClevertap Account ID: ${ctAccount}`;
+      }
     </script>
   </head>
   <body>
@@ -203,23 +209,23 @@
         style="display: none; visibility: hidden"
       ></iframe
     ></noscript>
-    <!-- End Google Tag Manager (noscript) -->
 
     <h1>Hello, World!</h1>
 
-    <!-- <button onclick="vapid()">
-      <h3>VAPID</h3>
-    </button> -->
-    <div class="image-section">
+    <div class="section">
       <div class="section-style">
         <img src="https://picsum.photos/400/200" alt="" />
         <p>A random image courtesy of picsum.com.</p>
-        <a href="page_2.html" target="_self">Visit 2 Page</a>
         <button class="btn" onclick="dismissPopup()">Setup Web Push</button>
       </div>
-
       <p>To reset permissions clear site data and reset app permissions on mobile</p>
       <button onclick="clearSiteData()">Clear Site Data</button>
     </div>
+
+    <code>
+      <button onclick="showClevertapData()">Show Clevertap Data</button>
+      <pre id="clevertap-data">
+      </pre> 
+    </code>
   </body>
 </html>
