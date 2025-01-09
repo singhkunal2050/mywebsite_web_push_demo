@@ -174,31 +174,6 @@
       // };
     </script>
 
-    <script>
-      function clearSiteData() {
-        // Clear localStorage
-        localStorage.clear();
-
-        // Clear sessionStorage
-        sessionStorage.clear();
-
-        // Clear cookies
-        document.cookie.split(";").forEach((cookie) => {
-          const name = cookie.split("=")[0].trim();
-          document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-        });
-
-        console.log(
-          "Site data cleared: localStorage, sessionStorage, and cookies."
-        );
-      }
-
-      function showClevertapData() {
-        const ctID = clevertap.getCleverTapID();
-        const ctAccount = clevertap.getAccountID();
-        document.getElementById("clevertap-data").innerHTML = `Clevertap ID: ${ctID}\nClevertap Account ID: ${ctAccount}`;
-      }
-    </script>
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
@@ -228,5 +203,52 @@
       <pre id="clevertap-data">
       </pre> 
     </code>
+
+    
+    <div id="log"></div>
   </body>
+
+  <script>
+    function clearSiteData() {
+      // Clear localStorage
+      localStorage.clear();
+
+      // Clear sessionStorage
+      sessionStorage.clear();
+
+      // Clear cookies
+      document.cookie.split(";").forEach((cookie) => {
+        const name = cookie.split("=")[0].trim();
+        document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+      });
+
+      console.log(
+        "Site data cleared: localStorage, sessionStorage, and cookies."
+      );
+    }
+
+    function showClevertapData() {
+      const ctID = clevertap.getCleverTapID();
+      const ctAccount = clevertap.getAccountID();
+      document.getElementById("clevertap-data").innerHTML = `Clevertap ID: ${ctID}\nClevertap Account ID: ${ctAccount}`;
+    }
+
+    (function() {
+    const logDiv = document.getElementById('log');
+    
+    const originalConsoleLog = console.log;
+    console.log = function(...args) {
+      originalConsoleLog(...args); // Keep the original behavior
+      const logMessage = args.map(arg => (typeof arg === 'object' ? JSON.stringify(arg) : String(arg))).join(' ');
+      const logEntry = document.createElement('div');
+      logEntry.textContent = logMessage;
+      logDiv.appendChild(logEntry);
+    };
+
+    // Test it
+    console.log('Testing console log redirection!');
+    console.log({ key: 'value', anotherKey: 123 });
+  })();
+
+  </script>
 </html>
