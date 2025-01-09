@@ -7,13 +7,21 @@
     <link rel="stylesheet" href="styles/styles.css" />
     <script async src="./javascript/index.js"></script>
 
-    <meta name="apple-mobile-web-app-title" content="Your Apple App Title">
+    <meta name="apple-mobile-web-app-title" content="Your Apple App Title" />
 
-
-    <link rel="icon" type="image/png" href="/assets/favicon-96x96.png" sizes="96x96" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/assets/favicon-96x96.png"
+      sizes="96x96"
+    />
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
     <link rel="shortcut icon" href="/assets/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/apple-touch-icon.png"
+    />
     <link rel="manifest" href="/assets/site.webmanifest" />
 
     <script type="text/javascript">
@@ -23,8 +31,6 @@
       const accountId = urlParams.get("accountId");
       const region = urlParams.get("region");
       const token = urlParams.get("token");
-
-
 
       var clevertap = {
         event: [],
@@ -138,14 +144,12 @@
           serviceWorkerPath: "/clevertap_sw.js",
         });
 
-
-        // Notification called with params 
-        // on apns 
-        // vapid creds added in dashboard 
-        // customer opens website 
-
+        // Notification called with params
+        // on apns
+        // vapid creds added in dashboard
+        // customer opens website
       }
-      
+
       //"serviceWorkerPath": "/clevertap_sw.js
       // var checkRemotePermission = function (permissionData) {
       //     if (permissionData.permission === 'default') {
@@ -170,44 +174,22 @@
     </script>
 
     <script>
-      function vapid() {
-        window.Notification.requestPermission().then((permission) => {
-          if (permission === "granted") {
-            const subscribeObj = {
-              applicationServerKey:
-                "BFygpPBmFuCSAXq1UDxA-LNBM2gzYHbp6Xld16N0xXp962u7oVu4BMG0qoafzHXFR43aAJi51JpmboG5v8idtbQ", // this.#fcmPublicKey,
-              userVisibleOnly: true,
-            };
-            console.log("Sub Obj" + JSON.stringify(subscribeObj));
-            registration.pushManager
-              .subscribe(subscribeObj)
-              .then((subscription) => {
-                console.log(
-                  "Service Worker registered. Endpoint: " +
-                    subscription.endpoint
-                );
-                console.log(
-                  "Service Data Sent: " +
-                    JSON.stringify({
-                      applicationServerKey:
-                        "BFygpPBmFuCSAXq1UDxA-LNBM2gzYHbp6Xld16N0xXp962u7oVu4BMG0qoafzHXFR43aAJi51JpmboG5v8idtbQ", // this.#fcmPublicKey,
-                      userVisibleOnly: true,
-                    })
-                );
-                console.log(
-                  "Subscription Data Received: " + JSON.stringify(subscription)
-                );
+      function clearSiteData() {
+        // Clear localStorage
+        localStorage.clear();
 
-                const subscriptionData = JSON.parse(
-                  JSON.stringify(subscription)
-                );
+        // Clear sessionStorage
+        sessionStorage.clear();
 
-                subscriptionData.endpoint = subscriptionData.endpoint
-                  .split("/")
-                  .pop();
-              });
-          }
+        // Clear cookies
+        document.cookie.split(";").forEach((cookie) => {
+          const name = cookie.split("=")[0].trim();
+          document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
         });
+
+        console.log(
+          "Site data cleared: localStorage, sessionStorage, and cookies."
+        );
       }
     </script>
   </head>
@@ -236,22 +218,8 @@
         <button class="btn" onclick="dismissPopup()">Setup Web Push</button>
       </div>
 
-      <div class="section-style">
-        <img src="https://picsum.photos/400/200" alt="" />
-        <p>A random image courtesy of picsum.com.</p>
-      </div>
-    </div>
-
-    <div class="image-section">
-      <div class="section-style">
-        <img src="https://picsum.photos/400/200" alt="" />
-        <p>A random image courtesy of picsum.com.</p>
-      </div>
-
-      <div class="section-style">
-        <img src="https://picsum.photos/400/200" alt="" />
-        <p>A random image courtesy of picsum.com.</p>
-      </div>
+      <p>To reset permissions clear site data and reset app permissions on mobile</p>
+      <button onclick="clearSiteData()">Clear Site Data</button>
     </div>
   </body>
 </html>
