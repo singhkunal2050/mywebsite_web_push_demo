@@ -25,6 +25,11 @@
     <link rel="manifest" href="/assets/site.webmanifest" />
 
     <script type="text/javascript">
+
+      function callAddToCart() {
+        clevertap.event.push("Added To Cart");
+      }
+
       // Get Account id and region from query string
       const queryString = window.location.search;
       const urlParams = new URLSearchParams(queryString);
@@ -187,6 +192,8 @@
     ></noscript>
 
     <h1>Hello, World!</h1>
+
+    <buttton onclick="callAddToCart">Push Added To Cart</buttton>
 
     <div class="section">
       <div class="section-style">
