@@ -41,7 +41,7 @@
         privacy: [],
       };
 
-      clevertap.account.push({ id: accountId }, region, "", token);
+      // clevertap.account.push({ id: accountId }, region, "", token);
       clevertap.event.push('Test');
 
       // replace with the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard -> Settings page
@@ -50,7 +50,7 @@
       // clevertap.account.push({ id: "W6Z-6Z5-975Z" });
 
       // Staging 4 account
-      // clevertap.account.push({ id: "884-5ZW-8Z7Z" }, "sk1-staging-4");
+      clevertap.account.push({ id: "884-5ZW-8Z7Z" }, "sk1-staging-4");
       // clevertap.account.push({  id: "884-5ZW-8Z7Z" }, "sk1");
 
       // Eu1 Account
@@ -205,7 +205,7 @@
     </code>
 
     
-    <div id="log"></div>
+    <div id="consoleViewer"></div>
   </body>
 
   <script>
@@ -233,22 +233,57 @@
       document.getElementById("clevertap-data").innerHTML = `Clevertap ID: ${ctID}\nClevertap Account ID: ${ctAccount}`;
     }
 
-    (function() {
-    const logDiv = document.getElementById('log');
+  //   (function() {
+  //   const logDiv = document.getElementById('log');
     
-    const originalConsoleLog = console.log;
-    console.log = function(...args) {
-      originalConsoleLog(...args); // Keep the original behavior
-      const logMessage = args.map(arg => (typeof arg === 'object' ? JSON.stringify(arg) : String(arg))).join(' ');
-      const logEntry = document.createElement('div');
-      logEntry.textContent = logMessage;
-      logDiv.appendChild(logEntry);
-    };
+  //   const originalConsoleLog = console.log;
+  //   console.log = function(...args) {
+  //     originalConsoleLog(...args); // Keep the original behavior
+  //     const logMessage = args.map(arg => (typeof arg === 'object' ? JSON.stringify(arg) : String(arg))).join(' ');
+  //     const logEntry = document.createElement('div');
+  //     logEntry.textContent = logMessage;
+  //     logDiv.appendChild(logEntry);
+  //   };
 
-    // Test it
-    console.log('Testing console log redirection!');
-    console.log({ key: 'value', anotherKey: 123 });
-  })();
+  //   // Test it
+  //   console.log('Testing console log redirection!');
+  //   console.log({ key: 'value', anotherKey: 123 });
+  // })();
+
+  (function() {
+      const consoleViewer = document.getElementById('consoleViewer');
+
+      // Helper function to add logs to the viewer
+      function appendToViewer(type, message) {
+        const logEntry = document.createElement('div');
+        logEntry.className = type;
+        logEntry.textContent = `[${type.toUpperCase()}] ${message}`;
+        consoleViewer.appendChild(logEntry);
+
+        // Auto-scroll to the bottom
+        consoleViewer.scrollTop = consoleViewer.scrollHeight;
+      }
+
+      // Methods to override
+      const methods = ['log', 'debug', 'warn', 'error'];
+
+      methods.forEach((method) => {
+        const originalMethod = console[method];
+
+        console[method] = function(...args) {
+          originalMethod.apply(console, args); // Preserve original functionality
+          
+          // Format message
+          const formattedMessage = args.map(arg => 
+            typeof arg === 'object' ? JSON.stringify(arg) : String(arg)
+          ).join(' ');
+
+          // Append to viewer
+          appendToViewer(method, formattedMessage);
+        };
+      });
+
+    })();
 
   </script>
 </html>
