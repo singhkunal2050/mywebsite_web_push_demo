@@ -128,6 +128,14 @@
       // 		 s.parentNode.insertBefore(wzrk, s);
       //   })();
 
+  
+
+function dismissPopup2() {
+  clevertap.setLogLevel(3)  
+  clevertap.notifications.enable({'swPath': '/clevertap_sw.js'})
+
+   }
+      
       function dismissPopup() {
         // var wrapper = window.parent.document.getElementById('wizParDiv2');
         // wrapper.remove();
@@ -200,6 +208,7 @@
         <img src="https://picsum.photos/400/200" alt="" />
         <p>A random image courtesy of picsum.com.</p>
         <button class="btn" onclick="dismissPopup()">Setup Web Push</button>
+        <button class="btn" onclick="dismissPopup2()">Setup New Web Push</button>
       </div>
       <p>To reset permissions clear site data and reset app permissions on mobile</p>
       <button onclick="clearSiteData()">Clear Site Data</button>
