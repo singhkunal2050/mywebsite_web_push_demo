@@ -219,11 +219,21 @@ function dismissPopup2() {
       </pre> 
     </code>
 
+    <div id="user-agent">
+
+    </div>
+
     
     <div id="consoleViewer"></div>
   </body>
 
   <script>
+
+    (function addUserAgentToPage() {
+      const node = document.querySelector('#user-agent');
+      node.innerHTML = navigator.userAgent;
+    })();
+
     function clearSiteData() {
       // Clear localStorage
       localStorage.clear();
