@@ -258,7 +258,7 @@ function dismissPopup2() {
             !ua.includes('Firefox')
     }
 
-    function checkCurrentBrowser() {
+    (function checkCurrentBrowser() {
       const node = document.querySelector('#browser-name');
       let browser = 'NA';
 
@@ -272,7 +272,7 @@ function dismissPopup2() {
 
       node.innerHTML = browser;
 
-    }
+    })()
 
 
     function clearSiteData() {
