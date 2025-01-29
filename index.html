@@ -222,6 +222,9 @@ function dismissPopup2() {
     <div id="user-agent">
 
     </div>
+    <div id="browser-name">
+
+    </div>
 
     
     <div id="consoleViewer"></div>
@@ -233,6 +236,44 @@ function dismissPopup2() {
       const node = document.querySelector('#user-agent');
       node.innerHTML = navigator.userAgent;
     })();
+
+
+    const isChrome = () => {
+      const ua = navigator.userAgent
+      return ua.includes('Chrome') || ua.includes('CriOS')
+    }
+
+    const isFirefox = () => {
+      const ua = navigator.userAgent
+      return ua.includes('Firefox') || ua.includes('FxiOS')
+    }
+
+    const isSafari = () => {
+      const ua = navigator.userAgent
+      // Ignoring the False Positive of Safari on iOS devices because it gives Safari in all Browsers
+      return ua.includes('Safari') &&
+            !ua.includes('CriOS') &&
+            !ua.includes('FxiOS') &&
+            !ua.includes('Chrome') &&
+            !ua.includes('Firefox')
+    }
+
+    function checkCurrentBrowser() {
+      const node = document.querySelector('#browser-name');
+      let browser = 'NA';
+
+      if(isChrome()){
+        browser='Chrome'
+      } else if(isFirefox()){
+        browser='Firefox'
+      } else if(isSafari()) {
+        browser='safari'
+      }
+
+      node.innerHTML = browser;
+
+    }
+
 
     function clearSiteData() {
       // Clear localStorage
