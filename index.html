@@ -47,7 +47,10 @@
       };
 
       // clevertap.account.push({ id: accountId }, region, "", token);
+      
+      // This case is important - because users can send event before clevertap init()
       // clevertap.event.push('Test');
+      
       // replace with the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard -> Settings page
 
       // Jay demo account
@@ -61,8 +64,11 @@
       // Eu1 Account
       // clevertap.account.push({ id: "ZWW-WWW-WWRZ" }, "eu1");
 
+      // THese 2 should be included in regression - users can opt in for GDPR
       // clevertap.privacy.push({ optOut: false }); //set the flag to true, if the user of the device opts out of sharing their data
       // clevertap.privacy.push({ useIP: false });
+
+      
       // clevertap.event.push("Web Push View", {
       //   "Product Name": "Product1",
       //   category: "cat1",
